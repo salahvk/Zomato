@@ -89,7 +89,74 @@ class Home extends StatelessWidget {
               width: 20,
             )
           ],
-        )
+        ),
+        Padding(
+          padding: const EdgeInsets.all(15.0),
+          child: ElevatedButton(
+            onPressed: () {},
+            child: Text('Continue'),
+            style: ElevatedButton.styleFrom(primary: Colors.red),
+          ),
+        ),
+        Row(
+          children: <Widget>[
+            Expanded(
+              child: Divider(
+                indent: wid * 0.06,
+                color: Colors.black,
+                thickness: 0.6,
+              ),
+            ),
+            const Padding(
+              padding: const EdgeInsets.only(left: 3, right: 3),
+              child: Text(
+                'or',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+            ),
+            Expanded(
+              child: Divider(
+                color: Colors.black,
+                thickness: 0.6,
+                endIndent: wid * 0.06,
+              ),
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Padding(
+          padding: EdgeInsets.only(left: wid * 0.4),
+          child: Row(
+            children: [
+              InkWell(
+                onTap: () {},
+                focusColor: Colors.black,
+                highlightColor: Colors.black,
+                borderRadius: BorderRadius.circular(10),
+                radius: 20,
+                child: Ink(
+                  decoration: BoxDecoration(shape: BoxShape.circle),
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    radius: 10,
+                    foregroundImage: AssetImage('Assets/image2.png'),
+                  ),
+                ),
+              ),
+              IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz))
+            ],
+          ),
+        ),
+        SizedBox(
+          height: 5,
+        ),
+        Text(
+          'By continuing, you agree to our \nTerms of service Privacy Policy Content Policy',
+          textAlign: TextAlign.center,
+          style: TextStyle(color: Colors.grey.shade800),
+        ),
       ],
     ));
   }
