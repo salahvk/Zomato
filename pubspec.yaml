@@ -31,6 +31,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  get: ^4.6.1
   international_phone_input: ^1.0.4
 
 dev_dependencies:

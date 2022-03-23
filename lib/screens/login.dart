@@ -1,5 +1,7 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:zomato/BottomSheets/loginBottom.dart';
 import 'package:zomato/screens/otpPage.dart';
 
 class Home extends StatelessWidget {
@@ -166,7 +168,24 @@ class Home extends StatelessWidget {
                   ),
                 ),
               ),
-              IconButton(onPressed: () {}, icon: Icon(Icons.more_horiz))
+              IconButton(
+                  onPressed: () {
+                    Get.bottomSheet(
+                        Container(
+                          child: Wrap(
+                            children: [
+                              sheet(
+                                  icon: Icons.facebook,
+                                  title: '  Continue With Facebook'),
+                              sheet(
+                                  icon: Icons.email,
+                                  title: '  Continue With Email')
+                            ],
+                          ),
+                        ),
+                        backgroundColor: Colors.white);
+                  },
+                  icon: Icon(Icons.more_horiz))
             ],
           ),
         ),

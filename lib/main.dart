@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:zomato/screens/splash_screen.dart';
 
 void main() {
@@ -11,6 +12,6 @@ class Myapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(debugShowCheckedModeBanner: false, home: Splash());
+    return GetMaterialApp(debugShowCheckedModeBanner: false, home: Splash());
   }
 }

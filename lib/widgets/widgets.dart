@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 
 class OtpField extends StatelessWidget {
-  const OtpField({Key? key}) : super(key: key);
+  final bool first = true, last = false;
+  OtpField({
+    required bool first,
+    last,
+    Key? key,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +15,15 @@ class OtpField extends StatelessWidget {
         margin: EdgeInsets.all(6),
         width: 40,
         height: 50,
-        child: TextField(
+        child: TextFormField(
+          onChanged: (value) {
+            if (value.length == 1 && last == false) {
+              FocusScope.of(context).nextFocus();
+            }
+            // if (value.length == 0 && first == false) {
+            //   FocusScope.of(context).previousFocus();
+            // }
+          },
           keyboardType: TextInputType.number,
           maxLength: 1,
           autofocus: true,

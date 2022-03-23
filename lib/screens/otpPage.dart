@@ -32,12 +32,18 @@ class OtpPage extends StatelessWidget {
               padding: const EdgeInsets.all(15.0),
               child: Row(
                 children: [
-                  OtpField(),
-                  OtpField(),
-                  OtpField(),
-                  OtpField(),
-                  OtpField(),
-                  OtpField()
+                  OtpField(
+                    first: true,
+                    last: false,
+                  ),
+                  OtpField(first: false, last: false),
+                  OtpField(first: false, last: false),
+                  OtpField(first: false, last: false),
+                  OtpField(first: false, last: false),
+                  OtpField(
+                    first: false,
+                    last: true,
+                  )
                 ],
               ),
             ),
