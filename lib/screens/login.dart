@@ -1,5 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:zomato/screens/otpPage.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -9,6 +10,8 @@ class Home extends StatelessWidget {
     final height = MediaQuery.of(context).size.height;
     final width = MediaQuery.of(context).size.width;
     double wid = width.toDouble();
+    // final formkeys = GlobalKey<FormState>();
+    final controller = TextEditingController();
 
     return Scaffold(
         body: ListView(
@@ -79,7 +82,15 @@ class Home extends StatelessWidget {
             ),
             Expanded(
                 child: TextFormField(
+              controller: controller,
               keyboardType: TextInputType.number,
+              // validator: (value) {
+              //   if (value != null && value.length < 10) {
+              //     return 'Enter your Phone number';
+              //   } else {
+              //     return null;
+              //   }
+              // },
               decoration: InputDecoration(
                   hintText: 'Enter phone number',
                   border: OutlineInputBorder(
@@ -93,7 +104,17 @@ class Home extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.all(15.0),
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              final text = double.parse(controller.text);
+              if (text >= 10) {
+                ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(content: Text('Submitting form')));
+
+                Navigator.push(context, MaterialPageRoute(builder: (context) {
+                  return OtpPage();
+                }));
+              }
+            },
             child: Text('Continue'),
             style: ElevatedButton.styleFrom(primary: Colors.red),
           ),
