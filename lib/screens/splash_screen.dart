@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:zomato/screens/checkbox.dart';
 import 'package:zomato/screens/login.dart';
 import 'package:zomato/main.dart';
 
@@ -47,5 +49,29 @@ class _SplashState extends State<Splash> {
   Future<void> gotoHome() async {
     await Future.delayed(Duration(seconds: 3));
     Navigator.of(context).push(MaterialPageRoute(builder: (ctx) => Home()));
+    await Future.delayed(Duration(seconds: 5));
+    Get.defaultDialog(
+        title: 'Location access !',
+        content: Column(
+          children: [
+            Row(
+              children: [Icon(Icons.location_on)],
+            ),
+            Text(
+              "Allow Zomato \nto access \nthis device's \nlocation?",
+              style: TextStyle(letterSpacing: 2, height: 1.3),
+            ),
+            Row(
+              children: [Index(), Text(" Dont't ask again")],
+            )
+          ],
+        ),
+        textConfirm: 'ALLOW',
+        textCancel: 'DENY',
+        cancelTextColor: Colors.teal,
+        confirmTextColor: Colors.teal,
+        buttonColor: Colors.white,
+        radius: 0);
   }
 }
+//       

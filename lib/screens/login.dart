@@ -1,5 +1,6 @@
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:zomato/BottomSheets/loginBottom.dart';
 import 'package:zomato/screens/otpPage.dart';
@@ -83,9 +84,15 @@ class Home extends StatelessWidget {
               width: 20,
             ),
             Expanded(
-                child: TextFormField(
-              controller: controller,
-              keyboardType: TextInputType.number,
+                child: TextField(
+              selectionControls: materialTextSelectionControls,
+              controller: controller, textInputAction: TextInputAction.done,
+
+              keyboardType: TextInputType.phone,
+              onEditingComplete: () {
+                TextInput.finishAutofillContext();
+              },
+              autofillHints: const [AutofillHints.telephoneNumber],
               // validator: (value) {
               //   if (value != null && value.length < 10) {
               //     return 'Enter your Phone number';
@@ -93,8 +100,9 @@ class Home extends StatelessWidget {
               //     return null;
               //   }
               // },
+              autofocus: false,
               decoration: InputDecoration(
-                  hintText: 'Enter phone number',
+                  labelText: 'Enter phone number',
                   border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(10))),
             )),
@@ -111,10 +119,7 @@ class Home extends StatelessWidget {
               if (text >= 10) {
                 ScaffoldMessenger.of(context).showSnackBar(
                     const SnackBar(content: Text('Submitting form')));
-
-                Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return OtpPage();
-                }));
+                Get.to(OtpPage());
               }
             },
             child: Text('Continue'),

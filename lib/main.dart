@@ -12,6 +12,13 @@ class Myapp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(debugShowCheckedModeBanner: false, home: Splash());
+    return GetMaterialApp(
+        theme: ThemeData(
+            textTheme:
+                TextTheme(bodyText1: TextStyle(), bodyText2: TextStyle()).apply(
+          bodyColor: Colors.black,
+        )),
+        debugShowCheckedModeBanner: false,
+        home: Splash());
   }
 }

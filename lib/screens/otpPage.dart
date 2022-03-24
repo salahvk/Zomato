@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:zomato/screens/personDetails.dart';
 import 'package:zomato/widgets/widgets.dart';
 
 class OtpPage extends StatelessWidget {
@@ -22,7 +24,7 @@ class OtpPage extends StatelessWidget {
               height: 25,
             ),
             Text(
-              'We have sent a verification code to',
+              'We have sent a verification code to ',
               textAlign: TextAlign.center,
             ),
             SizedBox(
@@ -56,7 +58,9 @@ class OtpPage extends StatelessWidget {
                     child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                             primary: Colors.white, onPrimary: Colors.grey),
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(Details());
+                        },
                         child: Text('Resend SMS in ')),
                   ),
                   SizedBox(
